@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="832.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TableViewStockController">
+   <children>
+      <TabPane fx:id="tpProdutos" layoutX="1.0" layoutY="104.0" prefHeight="540.0" prefWidth="832.0" style="-fx-background-color: #660089;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabEntrada" text="Gestãao de Registros">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="845.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d;">
+                     <children>
+                        <VBox layoutX="156.0" layoutY="27.0" spacing="12.0" />
+                        <HBox layoutX="116.0" layoutY="421.0" prefHeight="40.0" prefWidth="573.0" spacing="40.0">
+                           <children>
+                              <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#onNovo" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: green;" text="Novo" textFill="#e4dede">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#onGuardar" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #660089;" text="Guardar" textFill="#e4dede">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnApagar" mnemonicParsing="false" onAction="#onApagar" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: red;" text="Apagar" textFill="#e4dede">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onCancelar" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #e4dede#e4dede;" text="Cancelar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="288.0" layoutY="23.0" spacing="34.0">
+                           <children>
+                              <TextField fx:id="tfID" maxHeight="396.0" prefHeight="56.0" prefWidth="53.0" promptText="ID">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                              <Label maxHeight="396.0" text="Dt. Cadastro" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dpCadastradoEm" maxHeight="396.0" prefHeight="53.0" prefWidth="173.0" promptText="Data Cadastro" style="-fx-font-size: 18;" />
+                           </children>
+                        </HBox>
+                        <VBox layoutX="288.0" layoutY="104.0" spacing="23.0">
+                           <children>
+                              <TextField fx:id="tfProduto" prefHeight="56.0" prefWidth="396.0" promptText="Nome do Produto">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="tfQuantidade" prefHeight="56.0" prefWidth="399.0" promptText="Quantidade de Stock">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox fx:id="cbCategoria" prefHeight="53.0" prefWidth="400.0" style="-fx-font-size: 18;" />
+                              <ChoiceBox fx:id="cbSubcategoria" prefHeight="52.0" prefWidth="400.0" style="-fx-font-size: 18;" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="116.0" layoutY="46.0" spacing="50.0">
+                           <children>
+                              <Label text="ID" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Nome" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Qtd. de Stock" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Categoria" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Sub-categoria" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabSaida" closable="false" text="Lista de Produtos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="826.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d;">
+                     <children>
+                        <HBox layoutX="40.0" layoutY="38.0" spacing="20.0">
+                           <children>
+                              <TextField fx:id="tfPesquisar" prefHeight="40.0" prefWidth="258.0" promptText="O que procura?">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextField>
+                              <ChoiceBox fx:id="cbPesquisaTipo" prefHeight="40.0" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnAtualizar" layoutX="671.0" layoutY="38.0" mnemonicParsing="false" onAction="#onAtualizar" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #660089 #660089;" text="Atualizar" textFill="#e4dede">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <TableView fx:id="tvProdutos" layoutX="-3.0" layoutY="92.0" onContextMenuRequested="#onContextMenuRequested" prefHeight="358.0" prefWidth="838.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="56.0" text="Id" />
+                            <TableColumn fx:id="colNomeProduto" prefWidth="144.0" text="Nome do Produto" />
+                              <TableColumn fx:id="colQtdStock" prefWidth="137.0" text="Quantidade de Stock" />
+                              <TableColumn fx:id="colCategoria" minWidth="0.0" prefWidth="192.0" text="Categoria" />
+                              <TableColumn fx:id="colSubCategoria" prefWidth="180.0" text="Sub-categoria" />
+                              <TableColumn fx:id="colDataCadastro" prefWidth="128.0" text="Data cadastro" />
+                          </columns>
+                        </TableView>
+                        <Label fx:id="resultados" alignment="CENTER_RIGHT" layoutX="695.0" layoutY="469.0" text="Resultados: 0" textAlignment="RIGHT" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btnExit" layoutX="775.0" layoutY="14.0" mnemonicParsing="false" onAction="#onExit" prefHeight="31.0" prefWidth="43.0" style="-fx-background-color: red;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="241.0" layoutY="42.0" text="Sistema de Gestão de Stock" textFill="#660089">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

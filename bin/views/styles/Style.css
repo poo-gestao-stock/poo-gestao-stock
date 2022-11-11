@@ -1,0 +1,14 @@
+.tferror {
+    -fx-text-box-border: red;
+    color: red;
+    -fx-color: red;
+    -fx-border-color: red;
+    border-color: red;
+    -fx-border-width: 3px;
+    border-width: 3px;
+}
+
+.btn {
+    cursor: pointer;
+    -fx-cursor: pointer;
+}

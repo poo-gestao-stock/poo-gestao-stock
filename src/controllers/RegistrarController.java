@@ -118,8 +118,8 @@ public class RegistrarController {
     }
 
     void reset() {
-        UtilStyles.removeRed(tfConfirmarSenha);
-        UtilStyles.removeRed(tfSenha);
+        UtilStyles.removeErrorBorder(tfConfirmarSenha);
+        UtilStyles.removeErrorBorder(tfSenha);
         tfConfirmarSenha.setDisable(true);
         btnRegistrar.setDisable(true);
         tfConfirmarSenha.clear();
@@ -137,9 +137,10 @@ public class RegistrarController {
             public void changed(ObservableValue<? extends String> obsSenha, String senhaOld, String senhaNew) {
                 if (senhaNew.length() >= 3) {
                     tfConfirmarSenha.setDisable(false);
-                    UtilStyles.removeRed(tfSenha);
+                    UtilStyles.setSuccessBorder(tfSenha);
                 } else {
-                    UtilStyles.setRed(tfSenha);
+                    UtilStyles.removeSucsessBorder(tfSenha);
+                    UtilStyles.setErrorBorder(tfSenha);
                     btnRegistrar.setDisable(true);
                     tfConfirmarSenha.setDisable(true);
                 }
@@ -150,10 +151,11 @@ public class RegistrarController {
                             String confirmarSenhaNovo) {
                         if (confirmarSenhaNovo.equals(senhaNew)) {
                             btnRegistrar.setDisable(false);
-                            UtilStyles.removeRed(tfConfirmarSenha);
+                            UtilStyles.setSuccessBorder(tfConfirmarSenha);
                         } else {
                             btnRegistrar.setDisable(true);
-                            UtilStyles.setRed(tfConfirmarSenha);
+                            UtilStyles.removeSucsessBorder(tfConfirmarSenha);
+                            UtilStyles.setErrorBorder(tfConfirmarSenha);
                         }
                     }
                 });

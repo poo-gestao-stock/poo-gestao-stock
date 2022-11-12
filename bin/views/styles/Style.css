@@ -8,6 +8,16 @@
     border-width: 3px;
 }
 
+.tfsuccess {
+    -fx-text-box-border: yellowgreen;
+    color: yellowgreen;
+    -fx-color: yellowgreen;
+    -fx-border-color: yellowgreen;
+    border-color: yellowgreen;
+    -fx-border-width: 3px;
+    border-width: 3px;
+}
+
 .btn {
     cursor: pointer;
     -fx-cursor: pointer;

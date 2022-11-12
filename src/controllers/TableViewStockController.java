@@ -332,13 +332,6 @@ public class TableViewStockController {
         _limparCampos();
         _desabilitarCampos();
 
-        Util.instance.colocarImagensBotoes(
-                btnNovo,
-                btnGuardar,
-                btnApagar,
-                btnCancelar,
-                btnAtualizar);
-
         btnNovo.setDisable(false);
         btnGuardar.setDisable(true);
         btnApagar.setDisable(true);

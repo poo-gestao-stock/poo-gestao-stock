@@ -13,7 +13,9 @@
             "/Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib/javafx.graphics.jar",
             "/Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib/javafx.media.jar",
             "/Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib/javafx.swing.jar",
-            "/Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib/javafx.web.jar"
+            "/Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib/javafx.web.jar",
+            "/Users/macbookair/Documents/JavaLibs/fontawesome/fontawesomefx-commons-9.1.2.jar",
+            "/Users/macbookair/Documents/JavaLibs/fontawesome/fontawesomefx-fontawesome-4.7.0-9.1.2.jar"
         ],
         "exclude": [
             "/Users/macbookair/Documents/JavaLibs/javafx-sdk-11.0.2/lib/javafx-swt.jar"

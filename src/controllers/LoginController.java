@@ -131,10 +131,10 @@ public class LoginController {
             public void changed(ObservableValue<? extends String> obs, String senhaOld, String senhaNew) {
                 if (senhaNew.length() >= 3) {
                     btnLogin.setDisable(false);
-                    UtilStyles.removeRed(tfSenha);
+                    UtilStyles.removeErrorBorder(tfSenha);
                 } else {
                     btnLogin.setDisable(true);
-                    UtilStyles.setRed(tfSenha);
+                    UtilStyles.setErrorBorder(tfSenha);
                 }
             }
         });

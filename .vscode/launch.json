@@ -9,6 +9,7 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "App",
+            "vmArgs": "--module-path /Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
             "projectName": "GestaoStock_a94e0ca7"
         },
         {

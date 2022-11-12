@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -9,38 +10,49 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="832.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TableViewStockController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="832.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TableViewStockController">
    <children>
       <TabPane fx:id="tpProdutos" layoutX="1.0" layoutY="104.0" prefHeight="540.0" prefWidth="832.0" style="-fx-background-color: #660089;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tabEntrada" text="Gestãao de Registros">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="845.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="845.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d; -fx-background-image: url(&quot;../img/istock-mng.png&quot;);">
                      <children>
                         <VBox layoutX="156.0" layoutY="27.0" spacing="12.0" />
                         <HBox layoutX="116.0" layoutY="421.0" prefHeight="40.0" prefWidth="573.0" spacing="40.0">
                            <children>
-                              <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#onNovo" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: green;" text="Novo" textFill="#e4dede">
+                              <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#onNovo" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: green; -fx-background-radius: 20;" text="Novo" textFill="#e4dede">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#fff8f8" glyphName="PLUS" selectionFill="#e4dede" />
+                                 </graphic>
                               </Button>
-                              <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#onGuardar" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #660089;" text="Guardar" textFill="#e4dede">
+                              <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#onGuardar" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #660089; -fx-background-radius: 20;" text="Guardar" textFill="#e4dede">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#e4dede" glyphName="DATABASE" />
+                                 </graphic>
                               </Button>
-                              <Button fx:id="btnApagar" mnemonicParsing="false" onAction="#onApagar" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: red;" text="Apagar" textFill="#e4dede">
+                              <Button fx:id="btnApagar" mnemonicParsing="false" onAction="#onApagar" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: red; -fx-background-radius: 20;" text="Apagar" textFill="#e4dede">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#e4dede" glyphName="TRASH" />
+                                 </graphic>
                               </Button>
-                              <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onCancelar" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #e4dede#e4dede;" text="Cancelar">
+                              <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onCancelar" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #e4dede#e4dede; -fx-background-radius: 20;" text="Cancelar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -49,7 +61,7 @@
                         </HBox>
                         <HBox alignment="CENTER" layoutX="288.0" layoutY="23.0" spacing="34.0">
                            <children>
-                              <TextField fx:id="tfID" maxHeight="396.0" prefHeight="56.0" prefWidth="53.0" promptText="ID">
+                              <TextField fx:id="tfID" maxHeight="396.0" prefHeight="56.0" prefWidth="53.0" promptText="ID" style="-fx-background-radius: 20;">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -64,18 +76,18 @@
                         </HBox>
                         <VBox layoutX="288.0" layoutY="104.0" spacing="23.0">
                            <children>
-                              <TextField fx:id="tfProduto" prefHeight="56.0" prefWidth="396.0" promptText="Nome do Produto">
+                              <TextField fx:id="tfProduto" prefHeight="56.0" prefWidth="396.0" promptText="Nome do Produto" style="-fx-background-radius: 20;">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="tfQuantidade" prefHeight="56.0" prefWidth="399.0" promptText="Quantidade de Stock">
+                              <TextField fx:id="tfQuantidade" prefHeight="56.0" prefWidth="399.0" promptText="Quantidade de Stock" style="-fx-background-radius: 20;">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </TextField>
-                              <ChoiceBox fx:id="cbCategoria" prefHeight="53.0" prefWidth="400.0" style="-fx-font-size: 18;" />
-                              <ChoiceBox fx:id="cbSubcategoria" prefHeight="52.0" prefWidth="400.0" style="-fx-font-size: 18;" />
+                              <ChoiceBox fx:id="cbCategoria" prefHeight="53.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-background-radius: 20;" />
+                              <ChoiceBox fx:id="cbSubcategoria" prefHeight="52.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-background-radius: 20;" />
                            </children>
                         </VBox>
                         <VBox layoutX="116.0" layoutY="46.0" spacing="50.0">
@@ -115,19 +127,13 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="826.0" style="-fx-background-color: #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d #1b003d#1b003d;">
                      <children>
-                        <HBox layoutX="40.0" layoutY="38.0" spacing="20.0">
-                           <children>
-                              <TextField fx:id="tfPesquisar" prefHeight="40.0" prefWidth="258.0" promptText="O que procura?">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font></TextField>
-                              <ChoiceBox fx:id="cbPesquisaTipo" prefHeight="40.0" prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <Button fx:id="btnAtualizar" layoutX="671.0" layoutY="38.0" mnemonicParsing="false" onAction="#onAtualizar" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #660089 #660089;" text="Atualizar" textFill="#e4dede">
+                        <Button fx:id="btnAtualizar" layoutX="671.0" layoutY="38.0" mnemonicParsing="false" onAction="#onAtualizar" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #660089 #660089; -fx-background-radius: 20;" text="Atualizar" textFill="#e4dede">
                            <font>
                               <Font size="18.0" />
-                           </font></Button>
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="#e4dede" glyphName="REFRESH" />
+                           </graphic></Button>
                         <TableView fx:id="tvProdutos" layoutX="-3.0" layoutY="92.0" onContextMenuRequested="#onContextMenuRequested" prefHeight="358.0" prefWidth="838.0">
                           <columns>
                             <TableColumn fx:id="colId" prefWidth="56.0" text="Id" />
@@ -139,21 +145,36 @@
                           </columns>
                         </TableView>
                         <Label fx:id="resultados" alignment="CENTER_RIGHT" layoutX="695.0" layoutY="469.0" text="Resultados: 0" textAlignment="RIGHT" textFill="WHITE" />
+                        <FontAwesomeIconView fill="#660089" glyphName="SEARCH" layoutX="371.0" layoutY="66.0" size="25.0" />
+                        <TextField fx:id="tfPesquisar" layoutX="37.0" layoutY="38.0" prefHeight="40.0" prefWidth="328.0" promptText="O que procura?" style="-fx-background-radius: 20;">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <ChoiceBox fx:id="cbPesquisaTipo" layoutX="421.0" layoutY="37.0" prefHeight="40.0" prefWidth="164.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="btnExit" layoutX="775.0" layoutY="14.0" mnemonicParsing="false" onAction="#onExit" prefHeight="31.0" prefWidth="43.0" style="-fx-background-color: red;" text="X" textFill="WHITE">
+      <Button fx:id="btnExit" layoutX="775.0" layoutY="14.0" mnemonicParsing="false" onAction="#onExit" prefHeight="31.0" prefWidth="43.0" style="-fx-background-color: red; -fx-background-radius: 100;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
+         <graphic>
+            <FontAwesomeIconView fill="#fff8f8" glyphName="TIMES" selectionFill="#e4dede" />
+         </graphic>
       </Button>
       <Label layoutX="241.0" layoutY="42.0" text="Sistema de Gestão de Stock" textFill="#660089">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+      <ImageView fitHeight="128.0" fitWidth="123.0" layoutX="8.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/stock-mng.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

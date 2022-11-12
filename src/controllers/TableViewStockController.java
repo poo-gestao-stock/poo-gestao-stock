@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.ArrayList;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -324,10 +322,6 @@ public class TableViewStockController {
 
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                // System.out.println("1:" + arg0);
-                // System.out.println("2:" + arg1);
-                // System.out.println("3:" + arg2);
-
                 _obterSubcategoriaPorcategoria(arg2);
             }
 
@@ -385,7 +379,7 @@ public class TableViewStockController {
 
     private void _obterSubcategoriaPorcategoria(String cat) {
         var repo = new ProdutoRepository();
-        var c = repo.listarCategoriasPorNome(cat);
+        var c = repo.listarCategoriasPorNome(cat != null ? cat : cbCategoria.getValue());
         var subCats = repo.listarSubCategoriasPorCatId(c.getId());
 
         ObservableList<String> subcatsStr = FXCollections.observableArrayList();
@@ -429,13 +423,19 @@ public class TableViewStockController {
 
         switch (tipoBusca) {
             case porNome:
-                prdts = prdtRepo.listarPorNome(valor);
+                prdts = valor == null || valor.isEmpty()
+                        ? prdtRepo.listarProdutos()
+                        : prdtRepo.listarPorNome(valor);
                 break;
             case porCategoria:
-                prdts = prdtRepo.listarPorCategoria(valor);
+                prdts = valor == null || valor.isEmpty()
+                        ? prdtRepo.listarProdutos()
+                        : prdtRepo.listarPorCategoria(valor);
                 break;
             case porSubCategoria:
-                prdts = prdtRepo.listarPorSubCategoria(valor);
+                prdts = valor == null || valor.isEmpty()
+                        ? prdtRepo.listarProdutos()
+                        : prdtRepo.listarPorSubCategoria(valor);
                 break;
             default:
                 MeuAlert.mostrar("Erro", "Tipo de pesquisa incorreto.", AlertType.WARNING);

@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import connection.ConnectionFactory;
 import interfaces.IProdutoRepository;
@@ -192,6 +194,30 @@ public class ProdutoRepository implements IProdutoRepository {
         }
 
         return subCategoria;
+    }
+
+    public ObservableList<SubCategoria> listarSubCategoriasPorCatId(int cateId) {
+        ObservableList<SubCategoria> subCats = FXCollections.observableArrayList();
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(SqlQueries.listarSubCategoriasPorIdCategoria);
+            stmt.setInt(1, cateId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                var subCategoria = new SubCategoria();
+
+                subCategoria.setId(rs.getInt("id"));
+                subCategoria.setNome(rs.getString("nome"));
+
+                subCats.add(subCategoria);
+            }
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        return subCats;
     }
 
     @Override

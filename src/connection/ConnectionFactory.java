@@ -11,7 +11,6 @@ public class ConnectionFactory {
             );
 
             System.out.println("CONECTADO AO SERVIDOR o/");
-            //TODO: meter um dialog
 
             return conexao;
         } catch (Exception e) {

@@ -6,16 +6,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Current File",
+            "name": "Launch App",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "App",
+            "projectName": "GestaoStock_a94e0ca7"
         },
         {
             "type": "java",
             "name": "Launch App",
             "request": "launch",
             "mainClass": "App",
-            "vmArgs": "--module-path /Users/macbookair/Documents/JavaLibs/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path /Users/macbookair/Documents/JavaLibs/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
             "projectName": "GestaoStock_5589797e"
         }
     ]

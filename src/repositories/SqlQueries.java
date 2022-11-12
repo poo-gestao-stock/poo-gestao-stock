@@ -55,6 +55,7 @@ public class SqlQueries {
         // listar
         final static String listarSubCategorias = "select * from " + tabelaSubCategoria;
         final static String listarSubCategoriasPorNome = "select * from " + tabelaSubCategoria + " where [nome] like ?";
+        final static String listarSubCategoriasPorIdCategoria = "select * from " + tabelaSubCategoria + " where [categoria_id] = ?";
         // inserir
         final static String inserirSubCategoria = "insert into " + tabelaSubCategoria + "(nome) values(?)";
         // atualizar

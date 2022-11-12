@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.ArrayList;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -118,7 +120,6 @@ public class TableViewStockController {
         tfQuantidade.setText("");
         tfID.setText("");
         _setCategoriasCb();
-        _setSubCategoriasCb();
     }
 
     private void _desabilitarCampos() {
@@ -317,9 +318,22 @@ public class TableViewStockController {
 
     @FXML
     void initialize() {
-        _configurarTableView();
+
         _setCategoriasCb();
-        _setSubCategoriasCb();
+        cbCategoria.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                // System.out.println("1:" + arg0);
+                // System.out.println("2:" + arg1);
+                // System.out.println("3:" + arg2);
+
+                _obterSubcategoriaPorcategoria(arg2);
+            }
+
+        });
+
+        _configurarTableView();
         _atualizarTableView();
         _limparCampos();
         _desabilitarCampos();
@@ -369,19 +383,20 @@ public class TableViewStockController {
         cbCategoria.setValue(catsStr.get(0));
     }
 
-    private void _setSubCategoriasCb() {
-        cbSubcategoria.getItems().clear();
+    private void _obterSubcategoriaPorcategoria(String cat) {
         var repo = new ProdutoRepository();
+        var c = repo.listarCategoriasPorNome(cat);
+        var subCats = repo.listarSubCategoriasPorCatId(c.getId());
 
-        var subCats = repo.listarSubCategorias();
-        ObservableList<String> subCatsStr = FXCollections.observableArrayList();
+        ObservableList<String> subcatsStr = FXCollections.observableArrayList();
 
-        subCats.forEach((sc) -> {
-            subCatsStr.add(sc.getNome());
-        });
+        for (SubCategoria i : subCats) {
+            subcatsStr.add(i.getNome());
+        }
 
-        cbSubcategoria.getItems().addAll(subCatsStr);
-        cbSubcategoria.setValue(subCatsStr.get(0));
+        cbSubcategoria.getItems().clear();
+        cbSubcategoria.getItems().addAll(subcatsStr);
+        cbSubcategoria.setValue(subcatsStr.get(0));
     }
 
     private void _pesquisar(String valor) {
